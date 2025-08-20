@@ -1,4 +1,5 @@
-//LECTURE 2
+//LECTURE 2 
+//class objects and constructor
 
 public class Student {
     int RollNumber ;
