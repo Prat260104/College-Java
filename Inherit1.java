@@ -1,4 +1,4 @@
-//inheritance Lecture 4
+//inheritance Lecture 4 child class and parent class
 
 
 public class Inherit1 extends Construct {
