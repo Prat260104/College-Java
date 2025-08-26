@@ -1,39 +1,67 @@
-//LECTURE 2 
-//class objects and constructor
+
 
 public class Student {
-    int RollNumber ;
-    String Name;
-    String Department;
-    char Section;
-    static String CollegeName = "IIT DHOLAKPUR"; 
+    public String name;
+    protected String department;
+    int rollNo;
+    public int age;
 
-    Student(int rno,String naam,String dept,char sec){
-        this.RollNumber=rno;
-        this.Name=naam;
-        this.Department=dept;
-        this.Section=sec;
+    static String CollegeName = "KIET";//static variable iski value sabke liye same hogi
+
+    //parameteried constructor
+    public Student(String name, String depart, int rollNo, int age) {
+        this.name = name;
+        this.department = depart;
+        this.rollNo = rollNo;
+        this.age = age;
     }
-    public void studying(int hours){
-        System.out.println(this.Name + " is studying " + hours + " hours in " + CollegeName);
+// default constructor
+    public Student() {
+        this.name = null;
+        this.department = null;
+        this.rollNo = 0;
+        this.age = 0;
     }
-    public void eating(){
-        System.out.println(this.Name + " is eating");
+    //copy constructor
+    public Student(Student obj) {
+        this.name = obj.name;
+        this.department =obj.department;
+        this.rollNo = obj.rollNo;
+        this.age = obj.age;
     }
-     public void playing(){
-        System.out.println(this.Name + " is playing");
+
+    public void studying(int no_of_hours) {
+        System.out.println("The student " + name + " is studying for " + no_of_hours + ".");
     }
-    public static void main(String args[]){
-    Student student1 = new Student(32,"prateek","ai",'c');
-    student1.studying(24);
-    student1.eating();
-    student1.playing();
-    Student student2 = new Student(1,"prateekkadost","cse",'e');
-    student2.studying(0);
-    student2.eating();
-    student2.playing();
+
+    public void readAndWrite() {
+        System.out.println("The student can read and write.");
     }
-   
+
+    public void displayInfo() {
+        System.out.println("The student name is " + name + ", age is " + age + ", roll No is " + rollNo + " and department is " + department + ".");
+    }
+
+    public void payFee() {
+        System.out.println("The studenet " + name + " paid the tution Fee");
+    }
+
+    public static void main(String[] args) {
+        // Using parameterized constructor
+        Student student1 = new Student("Swayam_Srivastava", "CSE-AI", 258, 20);
+        student1.displayInfo();
+
+        // Using default constructor
+        Student student2 = new Student();
+        student2.name = "Nobita";
+        student2.age = 19;
+        student2.department = "CSE-AI";
+        student2.rollNo = 25;
+        student2.displayInfo();
+
+        // Static variable example
+        System.out.println("CollegeName is " + Student.CollegeName);
+        Student.CollegeName = "IIT GZB";
+        System.out.println("CollegeName after change: " + Student.CollegeName);
+    }
 }
-
-
